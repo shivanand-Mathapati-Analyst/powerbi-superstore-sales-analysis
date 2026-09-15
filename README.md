@@ -279,13 +279,9 @@ Superstore-Sales-Analysis/
 
 ## 🚀 How to Use
 
-1. Clone this repository
-   ```bash
-   git clone https://github.com/shivanand-Mathapati-Analyst/powerbi-superstore-sales-analysis.git
-   ```
-2. Open `PowerBI-Superstore-Sales-Project.pbix` in **Power BI Desktop** (free download [here](https://powerbi.microsoft.com/desktop/))
-3. If prompted, update the data source path under **Transform Data → Data Source Settings** to point to your local copy of `Sample - Superstore.csv`
-4. Click **Refresh** to load the data, then explore the report pages via the in-report navigation buttons
+1. Open `PowerBI-Superstore-Sales-Project.pbix` in **Power BI Desktop** (free download [here](https://powerbi.microsoft.com/desktop/))
+2. If prompted, update the data source path under **Transform Data → Data Source Settings** to point to your local copy of `Sample - Superstore.csv`
+3. Click **Refresh** to load the data, then explore the report pages via the in-report navigation buttons
 
 ---
 
