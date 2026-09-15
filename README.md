@@ -5,7 +5,7 @@
 ### End-to-end retail sales, profitability & customer intelligence dashboard built on the Sample Superstore dataset
 
 [![Tool](https://img.shields.io/badge/Tool-Power%20BI%20Desktop-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
-[![DAX](https://img.shields.io/badge/DAX-60%2B%20Measures-217346?style=for-the-badge&logo=microsoft&logoColor=white)](#-dax-measures)
+[![DAX](https://img.shields.io/badge/DAX-50%2B%20Measures-217346?style=for-the-badge&logo=microsoft&logoColor=white)](#-dax-measures)
 [![Power Query](https://img.shields.io/badge/Power%20Query-M%20Language-1E7145?style=for-the-badge)](#-etl--data-transformation)
 [![Data Model](https://img.shields.io/badge/Data%20Model-Star%20Schema-blue?style=for-the-badge)](#-data-model)
 [![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)](#)
