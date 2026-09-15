@@ -260,17 +260,18 @@ Data is ingested from a CSV source and cleaned entirely in **Power Query (M)**:
 ```
 Superstore-Sales-Analysis/
 │
-├── V100_PowerBI-Superstore-Sales-Project.pbix   # Main Power BI report file
-├── raw-data/
+├── dashboard/
+│   └── PowerBI-Superstore-Sales-Project.pbix    # Main Power BI report file
+├── raw data/
 │   └── Sample - Superstore.csv                  # Source dataset
-├── screenshots/
+├── images/
 │   ├── 01-home.png
-│   ├── 02-sales-overview.png
-│   ├── 03-profitability.png
-│   ├── 04-customer-insights.png
-│   ├── 05-product-deep-dive.png
-│   ├── 06-shipping-operations.png
-│   └── data-model-view.png
+│   ├── 02-sales-performance.png
+│   ├── 03-profit-performance.png
+│   ├── 04-customer-performance.png
+│   ├── 05-product-analysis.png
+│   ├── 06-shipping-analysis.png
+│   └── data-model.png
 └── README.md
 ```
 
@@ -280,9 +281,9 @@ Superstore-Sales-Analysis/
 
 1. Clone this repository
    ```bash
-   git clone https://github.com/<your-github-username>/<repo-name>.git
+   git clone https://github.com/shivanand-Mathapati-Analyst/powerbi-superstore-sales-analysis.git
    ```
-2. Open `V100_PowerBI-Superstore-Sales-Project.pbix` in **Power BI Desktop** (free download [here](https://powerbi.microsoft.com/desktop/))
+2. Open `PowerBI-Superstore-Sales-Project.pbix` in **Power BI Desktop** (free download [here](https://powerbi.microsoft.com/desktop/))
 3. If prompted, update the data source path under **Transform Data → Data Source Settings** to point to your local copy of `Sample - Superstore.csv`
 4. Click **Refresh** to load the data, then explore the report pages via the in-report navigation buttons
 
