@@ -51,7 +51,7 @@ The goal was to go beyond static charts and build a dashboard that *feels like a
 | 👥 **Customers** | 793 unique customers |
 | 📦 **Products** | 1,862 unique SKUs across 3 categories / 17 sub-categories |
 | 🌎 **Coverage** | 49 states \| 531 cities \| 4 US regions |
-| 📅 **Time Range** | Jan 2014 – Dec 2017 |
+| 📅 **Time Range** | Jan 2014 – Jan 2018 |
 
 ---
 
