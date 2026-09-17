@@ -30,10 +30,11 @@
 - [Repository Structure](#-repository-structure)
 - [How to Use](#-how-to-use)
 - [Business Problem & Insights](#-business-problem--insights)
-- [Key Insights (Summary)](#-key-insights)
+- [Key Insights (Summary)](#-key-insights-summary)
+- [Root Cause Analysis](#-root-cause-analysis)
+- [Actionable Recommendations](#-actionable-recommendations)
 - [Author](#-author)
 - [License](#-license)
-
 ---
 
 ## 📌 Overview
@@ -303,19 +304,42 @@ Between 2016 and 2017, sales jumped **+20.4%**, but margin *contracted* by ~0.7 
 
 ---
 
-### 🔴 Root Cause 1 — Discounting is destroying margin, not just eating into it
+## 📈 Key Insights (Summary)
 
-Profitability collapses almost linearly as discount depth increases — beyond a ~20% discount, orders become **loss-making on average**:
+- Sales grew every year, but **margin peaked in 2016 (13.4%) and declined in 2017 (12.7%)** despite a 20%+ sales increase — the core symptom behind the business problem
+- **Discounts above 30% are margin-negative**, and discounts above 50% lose far more than the sale is worth (-119.2% margin)
+- **The company gave away $322.58K in discounts** — more than the entire $286.82K in profit earned over the same period
+- **Furniture — specifically Tables and Bookcases — is the only structurally unprofitable category**, dragging down otherwise healthy Technology and Office Supplies performance, despite receiving the highest average discount (17.4%) of any category
+- **Texas, Ohio, Colorado, Illinois, and Pennsylvania** are the biggest loss contributors — Texas by sheer sales volume, Ohio and Colorado by consistently poor margins regardless of size
+- **26.3% of all orders (1,318 of 5,009) are unprofitable**, indicating a systemic discounting/pricing issue rather than isolated bad deals
+- **Copiers remain highly profitable (19.39% of total profit) despite low discounting (16.2%)**, proving that heavy discounts aren't required to drive strong sales
+- The **top 20% of customers** contribute a disproportionately high share of total revenue (Pareto effect)
+- **Standard Class** is the most-used shipping mode but also carries the longest average delivery time (5.0 days) and the lowest margin (12.1%) among all ship modes
+
+---
+
+## 🔍 Root Cause Analysis
+
+### 🔴 Root Cause 1 — Discounting is the biggest reason for low profit
+
+Profitability collapses almost linearly as discount depth increases — beyond a ~30% discount, orders become **loss-making on average**:
 
 | Discount Band | Sales | Profit | Margin % |
 |---|---:|---:|---:|
-| 0% (No Discount) | $1,087,908 | $320,988 | **29.5%** |
-| 1–20% | $846,522 | $100,785 | 11.9% |
-| 21–40% | $234,138 | -$35,817 | **-15.3%** |
-| 41–60% | $71,048 | -$28,944 | **-40.7%** |
-| 60%+ | $57,584 | -$70,614 | **-122.6%** |
+| 0% (No Discount) | $1,087,908 | $320,988 | **29.51%** |
+| 1–10% | $54,369 | $9,029 | **16.61%** |
+| 10–30% | $895,380 | $81,387 | **9.09%** |
+| 30–50% | $195,315 | -$48,448 | **-24.80%** |
+| 50%+ | $64,229 | -$76,559 | **-119.20%** |
 
-Discount level and profit are **negatively correlated (-0.22)** across all transactions. Deep discounts (>20%) generate only ~5% of total sales but destroy over **$135K in profit**. This is the single largest lever in the entire dataset.
+The damage runs deeper than the margin table alone shows:
+
+- **Profit margins turn negative once discounts exceed 30%** — there is no discount band beyond this point that remains profitable
+- **1,020 orders (20.4% of all orders) were discounted above 30%** — meaning 1 in every 5 orders sold was sold at a heavily discounted price
+- **The company gave away $322.58K in discounts** — more than the entire $286.82K in profit earned over the same period
+- **1,318 of 5,009 orders (26%) resulted in a loss**, and loss-making products climb sharply as discount depth increases, with **380 loss-making products** in the 50%+ discount band alone
+- **Products discounted 70–80% (e.g. Eureka Disposable at 80%) are almost universally loss-making**, effectively selling at a guaranteed loss on every unit
+
 
 ### 🔴 Root Cause 2 — One category (Furniture) is structurally unprofitable
 
@@ -323,9 +347,9 @@ Discount level and profit are **negatively correlated (-0.22)** across all trans
 |---|---:|---:|---:|---:|
 | Technology | $836,154 | $145,455 | 13.2% | **17.4%** |
 | Office Supplies | $719,047 | $122,491 | 15.7% | **17.0%** |
-| **Furniture** | $741,999 | **$18,451** | **17.4%** | **2.5%** |
+| **Furniture** | $742,000 | **$18,451** | **17.4%** | **2.5%** |
 
-Furniture generates nearly as much revenue as Technology but returns **7x less profit**, driven almost entirely by two sub-categories:
+Furniture generates nearly as much revenue as Technology but returns **7x less profit**, driven almost entirely by three sub-categories:
 
 | Sub-Category | Sales | Profit | Avg. Discount | Margin % |
 |---|---:|---:|---:|---:|
@@ -333,62 +357,75 @@ Furniture generates nearly as much revenue as Technology but returns **7x less p
 | **Bookcases** | $114,880 | **-$3,473** | 21.1% | **-3.0%** |
 | Supplies | $46,674 | -$1,189 | 7.7% | -2.5% |
 
-**Tables and Bookcases are the two biggest discount recipients in the catalog and both lose money on every dollar sold.** They are effectively subsidizing volume growth at the expense of company profit.
+**Tables and Bookcases get discounted the most out of any products, and both are sold at a loss.** In other words, the company is losing money to sell more of these items — boosting sales numbers while actually hurting overall profit.
 
-### 🔴 Root Cause 3 — Losses are geographically concentrated, not evenly spread
+- **Furniture received the highest average discount (17.4%) of any category, but contributed only 6.58% of total profit** despite generating over $742K in sales — the weakest return on discount investment in the dataset
+- **Technology received the lowest average discount (13.2%) and generated the highest profit contribution (50.71%)** — the clearest evidence that lighter discounting protects margin
+- **Tables generated strong sales but resulted in an overall loss**, driven almost entirely by heavy discounting rather than a fundamentally weak product
+- **Copiers generated 19.39% of total profit with a relatively low average discount (16.2%)**, showing that premium, lightly-discounted products remain highly profitable
 
-A small group of states account for a disproportionate share of losses — led by large, high-volume markets:
+
+### 🔴 Root Cause 3 — Losses Are Concentrated in a Few States
+
+Some states lose the company more money than others — a few because they sell a lot (even small losses add up), and others because their margins are consistently bad regardless of sales volume:
 
 | State | Sales | Profit | Margin % |
 |---|---:|---:|---:|
-| Texas | $170,188 | **-$25,729** | -15.1% |
-| Ohio | $78,258 | **-$16,971** | -21.7% |
-| Pennsylvania | $116,512 | **-$15,560** | -13.4% |
-| Illinois | $80,166 | **-$12,608** | -15.7% |
-| North Carolina | $55,603 | **-$7,491** | -13.5% |
+| Ohio | $78,258 | -$16,971 | -21.69% |
+| Colorado | $32,108 | -$6,528 | -20.33% |
+| Tennessee | $30,662 | -$5,342 | -17.42% |
+| Illinois | $80,166 | -$12,608 | -15.73% |
+| Texas | $170,188 | -$25,729 | -15.12% |
+| North Carolina | $55,603 | -$7,491 | -13.47% |
+| Pennsylvania | $116,512 | -$15,560 | -13.35% |
+| Arizona | $35,282 | -$3,428 | -9.72% |
+| Oregon | $17,431 | -$1,190 | -6.83% |
+| Florida | $89,474 | -$3,399 | -3.80% |
 
-These five states alone account for roughly **-$78K in losses** — more than a quarter of total company profit. Regionally, the **Central region** is the weakest performer (7.9% margin vs. 13–15% elsewhere), consistent with Texas/Illinois/Ohio sitting inside or near it.
+**Texas is the single largest loss contributor in dollar terms (-$25,729)** despite a mid-table margin, simply due to its high sales volume — while **Ohio and Colorado post the worst margins (-21.69% and -20.33%)** on comparatively modest sales, suggesting a deeper pricing or discounting problem specific to those states rather than a volume issue.
 
-### 🔴 Root Cause 4 — A meaningful share of orders lose money outright
+Together, these 10 states account for roughly **-$98.2K in combined losses — over a third of total company profit** ($286.82K), making geography one of the most concentrated and addressable sources of the company's overall profitability problem.
 
-**1,318 of 5,009 orders (26.3%)** are unprofitable. This isn't a fringe issue — roughly **1 in 4 orders shipped is a net loss to the company**, independent of overall revenue growth. Combined with Root Causes 1–3, this points to a pricing/discount *approval process* problem rather than a one-off pricing mistake.
+A few additional patterns stand out:
+
+- **Collectively, these 10 states generated $705.7K in sales but returned an overall margin of -13.9%** — meaning this isn't one bad state dragging down an otherwise healthy group; the entire group is structurally unprofitable together
+- **Texas alone accounts for ~26% of the combined losses** across all 10 states, making it the single highest-priority market for a margin review
+- **The problem isn't limited to large states** — Oregon, the smallest state in this group by sales ($17,431), still posts a meaningful loss (-6.83%), showing the issue exists at small and large scale alike
+- **Every state in this list has a negative margin regardless of size** — from Texas at $170K in sales down to Oregon at $17K — indicating a shared, systemic cause (likely discounting, tied to Root Cause 1) rather than isolated one-off pricing mistakes in a single market
+
+
+### 🔴 Root Cause 4 — A Lot of Orders Are Sold at a Loss
+
+**1,318 out of 5,009 orders (26.3%) lost money.** That means roughly **1 in every 4 orders shipped actually cost the company money**, no matter how much total revenue was growing. Combined with the first three root causes, this suggests the real problem isn't a few bad deals — it's how discounts get approved in the first place.
 
 ---
 
-### ✅ Actionable Recommendations
+
+## ✅ Actionable Recommendations
 
 | # | Recommendation | Root Cause Addressed |
 |---|---|---|
-| 1 | **Cap or tier discount approval** — require manager sign-off for any discount above 20%, since margin turns negative past that point | Discounting (Cause 1) |
-| 2 | **Re-price or re-negotiate supplier costs for Tables and Bookcases**, or reduce standard discounting on these sub-categories specifically | Furniture losses (Cause 2) |
-| 3 | **Run a full margin audit on Texas, Ohio, Pennsylvania, Illinois, and North Carolina** — likely candidates are regional discount overrides, freight cost allocation, or local pricing exceptions | Geographic losses (Cause 3) |
-| 4 | **Flag and review all orders with >40% discount before fulfillment** — this band alone is responsible for ~$99.5K in combined losses | Discounting (Cause 1) |
-| 5 | **Shift sales incentives from revenue-based to margin-based targets** to stop rewarding discount-driven volume growth that shows up in Sales but not Profit | Growth-profit gap (overall) |
-| 6 | **Monitor the Sales vs. Profit trend and Margin % as paired KPIs** (already built into the Home and Sales Overview pages) rather than tracking Sales growth alone, so margin erosion is caught earlier next cycle | Growth-profit gap (overall) |
-
----
-
-## 📈 Key Insights (Summary)
-
-- Sales grew every year, but **margin peaked in 2016 (13.4%) and declined in 2017 (12.7%)** despite a 20%+ sales increase — the core symptom behind the business problem
-- **Discounts above 20% are margin-negative**, and discounts above 60% lose more than the sale is worth (-122.6% margin)
-- **Furniture — specifically Tables and Bookcases — is the only structurally unprofitable category**, dragging down otherwise healthy Technology and Office Supplies performance
-- **Texas, Ohio, Pennsylvania, Illinois, and North Carolina** account for over a quarter of total company losses
-- **26.3% of all orders (1,318 of 5,009) are unprofitable**, indicating a systemic discounting/pricing issue rather than isolated bad deals
-- The **top 20% of customers** contribute a disproportionately high share of total revenue (Pareto effect)
-- **Standard Class** is the most-used shipping mode but also carries the longest average delivery time (5.0 days) and the lowest margin (12.1%) among all ship modes
+| 1 | **Cap discount approval at 30%** — require manager sign-off beyond this point, since margin turns negative past 30% and losses accelerate sharply after 50% | Discounting (Cause 1) |
+| 2 | **Immediately review all orders discounted above 50%** — this band alone destroys over **$76.5K in profit**, and products like Eureka Disposable at 80% off are sold at a near-guaranteed loss | Discounting (Cause 1) |
+| 3 | **Re-price or renegotiate supplier costs for Tables and Bookcases**, or cap their maximum allowable discount specifically — these two sub-categories are structurally loss-making regardless of volume | Furniture losses (Cause 2) |
+| 4 | **Use Copiers and Technology as the pricing model to follow** — both stay lightly discounted (13–16%) and remain highly profitable, proving heavy discounting isn't necessary to drive sales | Furniture losses (Cause 2) |
+| 5 | **Run a full margin audit on Texas, Ohio, Colorado, Illinois, and Pennsylvania** — Texas drives the largest dollar loss from volume, while Ohio and Colorado post the worst margins regardless of size, pointing to state-level pricing or discount overrides | Geographic losses (Cause 3) |
+| 6 | **Investigate why losses appear at every state size** — from Texas ($170K in sales) down to Oregon ($17K) — since a shared negative margin across small and large states alike points to a systemic discount policy issue, not isolated bad deals | Geographic losses (Cause 3) |
+| 7 | **Fix the discount *approval process*, not just individual deals** — with 1 in 4 orders (26.3%) unprofitable, the issue is systemic; add a mandatory margin check before an order is confirmed, not just periodic reviews after the fact | Loss-making orders (Cause 4) |
+| 8 | **Shift sales incentives from revenue-based to margin-based targets** to stop rewarding discount-driven volume growth that shows up in Sales but not Profit | Growth-profit gap (overall) |
+| 9 | **Monitor Sales vs. Profit trend and Margin % as paired KPIs** (already built into the Home and Sales Overview pages) rather than tracking Sales growth alone, so margin erosion is caught earlier next cycle | Growth-profit gap (overall) |
 
 ---
 
 ## 👤 Author
 
 **Shivanand S. Mathapati**
-Data Analyst | Power BI Developer
 
-- 🌐 Portfolio: [shivanand-mathapati.vercel.app](https://shivanand-mathapati.vercel.app)
-- 💼 LinkedIn: `<add your LinkedIn URL>`
-- 📺 YouTube: *Learn Data with Shiva*
-- ✉️ Email: `<add your email>`
+
+- 🌐 Portfolio: 
+- 💼 LinkedIn: 
+- 📺 YouTube: 
+- ✉️ Email: 
 
 ---
 
