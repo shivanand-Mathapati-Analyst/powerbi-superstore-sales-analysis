@@ -12,8 +12,7 @@
 
 <br>
 
-<!-- 🖼️ Add a hero GIF/screenshot of the Home page here once exported -->
-<!-- <img src="screenshots/00-hero.gif" alt="Dashboard Preview" width="100%"> -->
+<img src="images/live_dashboard.gif" alt="Dashboard Preview" width="100%">
 
 </div>
 
