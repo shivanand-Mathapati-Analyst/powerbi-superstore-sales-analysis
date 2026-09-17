@@ -57,7 +57,7 @@ The goal was to go beyond static charts and build a dashboard that *feels like a
 ## ✨ Key Features
 
 - **6 fully designed report pages** + 3 dedicated tooltip pages (report-page tooltips on hover)
-- **60+ custom DAX measures** — core KPIs, time intelligence (YTD/QTD/MTD, YoY%, MoM%, rolling averages), dynamic titles, and Pareto (80/20) customer analysis
+- **50+ custom DAX measures** — core KPIs, time intelligence (YTD/QTD/MTD, YoY%, MoM%, rolling averages), dynamic titles, and Pareto (80/20) customer analysis
 - **Dynamic page titles & subtitles** that update automatically based on slicer/region selection
 - **Auto-generated insight callouts** (e.g., top-performing region/category) written entirely in DAX
 - **Drill-through & tooltip pages** for Category, State, and Region-level context on hover
@@ -69,12 +69,12 @@ The goal was to go beyond static charts and build a dashboard that *feels like a
 ## 🖥️ Dashboard Preview
 
 ### 1️⃣ Home
-Landing page with headline KPIs (Total Sales, Profit, Orders, Customers), a **Sales by Region** column chart, **Sales vs Profit Trend** line chart, **Sales by Category** donut, and navigation buttons into every other page.
+Landing page with headline KPIs (Total Sales, Profit, Orders), a **Sales by Region** column chart, **Sales vs Profit Trend** line chart, **Sales by Category** donut, and navigation buttons into every other page.
 
 <img src="images/01-home.png" alt="Home Page" width="100%">
 
 ### 2️⃣ Sales Overview
-Deep dive into revenue performance: **Sales Trend (Seasonal)**, **Sales by Category**, **Sales by Segment**, a **Sales by State** map, and a **Top 10 Products** table — filterable by Region, Segment, and Category slicers.
+Deep dive into revenue performance: **Sales Trend (Seasonal)**, **Sales by Category**, **Sales by Segment**, a **Sales by State** map, and a **Top 10 Products** table — filterable by Region, Segment, Ship Mode  and Category slicers.
 
 <img src="images/02-sales-performance.png" alt="Sales Overview Page" width="100%">
 
@@ -102,7 +102,7 @@ Logistics and fulfillment analysis: **Orders by Ship Mode**, **Avg Delivery Days
 
 ## 🗃️ Data Model
 
-The model follows a **star-schema** approach with a central fact table and supporting dimension/measure tables.
+The model follows a **star-schema** approach with a central fact table (Superstore data table) and supporting dimension/measure table (Date table).
 
 <img src="images/data-model.png" alt="Power BI Data Model View" width="100%">
 
@@ -110,12 +110,11 @@ The model follows a **star-schema** approach with a central fact table and suppo
 |---|---|---|
 | **SuperstoreData** | Fact | 9,994 rows × 27 columns — orders, products, customers, sales, profit, discount, shipping & delivery metrics |
 | **DateMaster** | Dimension | Custom calendar table powering all time-intelligence measures (YTD, QTD, MTD, YoY, MoM) |
-| **Measure** | Measure table | Dedicated (disconnected) table used purely to organize all 60+ DAX measures outside the fact table |
-| Auto Date Tables | Hidden | Power BI's built-in date hierarchy tables (used internally for local date filtering) |
+| **Measure** | Measure table | Dedicated (disconnected) table used purely to organize all 50+ DAX measures outside the fact table |
 
-**Key derived columns** created in Power Query / DAX:
-- `DeliveryDays` — Ship Date − Order Date
-- `OnTime&LateFlag` / `OnTime&LateFlagMeaning` — SLA compliance flag vs. threshold
+**Key derived columns** created in Power BI Using DAX:
+- `DeliveryDays` — 'Ship Date − Order Date'
+- `OnTime&LateThreshold` — Defines the expected delivery-day threshold per Ship Mode (Same Day, First Class, Second Class, Standard Class), used as the benchmark for the OnTime&LateFlag calculation
 - `Discount_Band` — categorized discount tiers
 - `Customer Type` — New vs. Returning classification
 
@@ -123,7 +122,8 @@ The model follows a **star-schema** approach with a central fact table and suppo
 
 ## 🧮 DAX Measures
 
-A sample of the 60+ measures used across the report (organized by category):
+A sample of the 50+ measures used across the report (organized by category):
+(Click on triangles)
 
 <details>
 <summary><strong>📌 Core KPIs</strong></summary>
