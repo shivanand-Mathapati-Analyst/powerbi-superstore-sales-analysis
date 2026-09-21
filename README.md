@@ -41,6 +41,11 @@
 
 This project is a **6-page interactive Power BI dashboard** built on the classic **Sample Superstore** dataset (2014–2017, US retail operations). It transforms 9,994 raw transaction records into a decision-ready analytics suite covering **sales performance, profitability, customer behavior, product trends, and shipping operations**.
 
+**This project is part of a three-tool analytics portfolio built on the same Superstore dataset.**
+
+This project uses the same Superstore dataset as my [SQL Server](https://github.com/shivanand-Mathapati-Analyst/sql-superstore-sales-analysis) and [Excel](https://github.com/shivanand-Mathapati-Analyst/excel-superstore-sales-analysis) projects, demonstrating how the same business problem can be analyzed and solved using three different analytics tools: Power BI, SQL Server, and Excel.
+
+
 The goal was to go beyond static charts and build a dashboard that *feels like a product* — dynamic titles that respond to filters, contextual tooltip pages, auto-generated insight callouts, KPI cards with YoY/MoM trends, and a clean, consistent visual design system across every page.
 
 | | |
