@@ -448,7 +448,6 @@ Customer Segmentation Analysis, Built on three tools using UK based Online Retai
 
 - 🌐 Portfolio: 
 - 💼 LinkedIn: 
-- 📺 YouTube: 
 - ✉️ Email: 
 
 ---
