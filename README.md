@@ -28,7 +28,6 @@
 - [ETL / Data Transformation](#-etl--data-transformation)
 - [Tech Stack](#️-tech-stack)
 - [Repository Structure](#-repository-structure)
-- [How to Use](#-how-to-use)
 - [Business Problem & Insights](#-business-problem--insights)
 - [Key Insights (Summary)](#-key-insights-summary)
 - [Root Cause Analysis](#-root-cause-analysis)
@@ -280,14 +279,6 @@ Superstore-Sales-Analysis/
 │   └── data-model.png
 └── README.md
 ```
-
----
-
-## 🚀 How to Use
-
-1. Open `PowerBI-Superstore-Sales-Project.pbix` in **Power BI Desktop** (free download [here](https://powerbi.microsoft.com/desktop/))
-2. If prompted, update the data source path under **Transform Data → Data Source Settings** to point to your local copy of `Sample - Superstore.csv`
-3. Click **Refresh** to load the data, then explore the report pages via the in-report navigation buttons
 
 ---
 
